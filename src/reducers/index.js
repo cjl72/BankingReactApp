@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({
+import accountReducer from "./accountReducer";
 
+export default combineReducers({
+    accounts: accountReducer,
 });
