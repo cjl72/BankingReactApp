@@ -8,6 +8,8 @@
 
 .nav-item {
     float: left;
+    font-family: Corbel, sans-serif;
+    font-size: 25px;
 }
 
 .nav-link {
@@ -16,6 +18,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    margin: 0 40px 0 40px;
 }
 
 .nav-link:hover {
