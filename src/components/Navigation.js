@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './styles/navigation.css';
 
 class Navigation extends React.Component {
     state = { currentPage: '/' }
@@ -22,7 +23,7 @@ class Navigation extends React.Component {
                     </Link>
                 </li>
                 <li className='nav-item'>
-                    <Link className={this.isActiveTab('/transactions')} to="/transactions"
+                    <Link className= {this.isActiveTab('/transactions')} to="/transactions"
                           onClick={event => this.onTabClick(event, '/transactions')}>
                         Transactions
                     </Link>
