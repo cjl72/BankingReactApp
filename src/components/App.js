@@ -12,7 +12,7 @@ const App = () => {
                 <Navigation />
                 <div>
                     <Route path="/" exact component={ Dashboard } />
-                    <Route path="/transactions" exact component={ Transactions } />
+                    <Route path="/transactions" component={ Transactions } />
                 </div>
             </BrowserRouter>
         </div>
