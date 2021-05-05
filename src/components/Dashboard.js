@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Dashboard extends React.Component {
 
     renderList() {
-        let accountList = this.props[this.props.accounts];
+        let accountList = [this.props.accounts];
 
         return accountList.map((char, index) => {
            return(
