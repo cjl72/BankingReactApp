@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import { initialLoad } from '../actions';
 import Dashboard from './Dashboard';
 import Transactions from './Transactions';
 import Navigation from './Navigation';
@@ -8,7 +10,10 @@ import Account from './Account';
 import './styles/index.css';
 
 
-const App = () => {
+const App = (props) => {
+    useEffect(() => {
+       props.initialLoad([{ name: 'example' }]);
+    });
     return (
         <div className='topDiv'>
             <Navigation />
@@ -21,4 +26,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default connect(null, { initialLoad })(App);

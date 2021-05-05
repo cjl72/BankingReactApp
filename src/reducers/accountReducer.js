@@ -14,6 +14,9 @@ const DEFAULT_STATE = {
 
 const accountReducer = (state = DEFAULT_STATE, action) => {
     switch (action.type) {
+        case 'INITIAL_LOAD':
+            let newState= [...action.payload];
+            return newState;
         default:
             return state;
     }

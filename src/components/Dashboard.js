@@ -6,23 +6,11 @@ import './styles/dashboard.css';
 
 class Dashboard extends React.Component {
 
-    state = {
-        accountsList: [{id: 1, name: 'Michael', balance: 20, transactions: []},
-            {id: 2, name: 'Jim', balance: '5,000', transactions: []},
-            {id: 3, name: 'Pam', balance: '6,000', transactions: []},
-            {id: 4, name: 'Dwight', balance: '20,000', transactions: []},
-            {id: 5, name: 'Stanley', balance: '600,000', transactions: []},
-            {id: 6, name: 'Kevin', balance: '3,000', transactions: []},
-            {id: 7, name: 'Phyllis', balance: '20,000', transactions: []},
-            {id: 8, name: 'Andy', balance: '600,000', transactions: []},
-            {id: 9, name: 'Darryl', balance: '3,000', transactions: []}
-        ]
-    }
-
     renderList() {
 
 
-        return this.state.accountsList.map((char, index) => {
+
+        return this.props.accounts.map((char, index) => {
            return(
              <div className='card' key={index}>
                  <div className='card-body justify-content-center'>
@@ -63,7 +51,7 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      accounts: state.accounts
+      accounts: state.accounts.accounts
     };
 };
 
