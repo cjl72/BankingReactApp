@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { initialLoad } from '../actions';
 import Dashboard from './Dashboard';
@@ -12,7 +13,13 @@ import './styles/index.css';
 
 const App = (props) => {
     useEffect(() => {
-       props.initialLoad([{ name: 'example' }]);
+       props.initialLoad(axios.get('http://my-json-server.typicode.com/cjl72/Project_3/accounts')
+           .then(response => {
+               return [response.data];
+           }).catch(error => {
+               return error.message;
+           })
+       );
     });
     return (
         <div className='topDiv'>
