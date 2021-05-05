@@ -5,10 +5,12 @@ import Dashboard from './Dashboard';
 import Transactions from './Transactions';
 import Navigation from './Navigation';
 import Account from './Account';
+import './styles/index.css';
+
 
 const App = () => {
     return (
-        <div>
+        <div className='topDiv'>
             <Navigation />
                 <div>
                     <Route path="/" exact component={ Dashboard } />

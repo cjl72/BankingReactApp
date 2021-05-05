@@ -27,6 +27,12 @@ class Dashboard extends React.Component {
                  <div className='card-body justify-content-center'>
                      <h2 className='card-header'>{ char.name }'s <br /> Account</h2>
                      <h4>Balance: ${ char.balance } </h4> <br />
+                     <button type='button' className='btn btn-danger'>
+                         Withdraw
+                     </button>
+                     <button type='button' className='btn btn-success'>
+                         Deposit
+                     </button>
                      <Link to ={ `/account/${char.id}` }>
                          <button type='button'
                                  className='btn btn-primary'>
