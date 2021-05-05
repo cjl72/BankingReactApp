@@ -13,13 +13,12 @@ import './styles/index.css';
 
 const App = (props) => {
     useEffect(() => {
-       props.initialLoad(axios.get('http://my-json-server.typicode.com/cjl72/Project_3/accounts')
+       axios.get('http://my-json-server.typicode.com/cjl72/Project_3/accounts')
            .then(response => {
-               return [response.data];
+               props.initialLoad(response.data);
            }).catch(error => {
                return error.message;
-           })
-       );
+           });
     });
     return (
         <div className='topDiv'>
