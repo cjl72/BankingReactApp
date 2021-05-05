@@ -21,6 +21,7 @@ class Dashboard extends React.Component {
 
     renderList() {
 
+
         return this.state.accountsList.map((char, index) => {
            return(
              <div className='card' key={index}>
@@ -56,9 +57,9 @@ class Dashboard extends React.Component {
                 <h1>Dashboard</h1>
                 { accountList }
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 const mapStateToProps = state => {
     return {

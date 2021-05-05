@@ -1,14 +1,17 @@
 .card {
     width: 300px;
     display: inline-block;
-    margin: 30px
+    margin: 30px;
 }
 .btn {
     margin: 10px;
 }
 .dashboard {
-    background-color: #282725
+    background-color: #282725;
 }
 h1 {
-    color: #e4e3d9
+    color: #e4e3d9;
+}
+h4 {
+    margin-top: 20px;
 }

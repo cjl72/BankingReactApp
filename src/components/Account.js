@@ -7,7 +7,8 @@ class Account extends React.Component {
         name: '',
         balance: null,
         transactions: [],
-        accountsList: [{id: 1, name: 'Michael', balance: 20, transactions: []},
+        accountsList: [
+            {id: 1, name: 'Michael', balance: 20, transactions: []},
             {id: 2, name: 'Jim', balance: 5000, transactions: []},
             {id: 3, name: 'Pam', balance: 6000, transactions: []},
             {id: 4, name: 'Dwight', balance: 20000, transactions: []},
