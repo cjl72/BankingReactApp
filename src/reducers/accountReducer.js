@@ -5,12 +5,20 @@ const DEFAULT_STATE = {
 };
 
 const accountReducer = (state = DEFAULT_STATE, action) => {
+    let newState = {...state};
     switch (action.type) {
         case 'INITIAL_LOAD':
-            let newState= { accounts: [...action.payload]};
+            newState = {accounts: [...action.payload]}
+            return newState;
+        case 'WITHDRAW':
+            const { name, amount, id } = action.payload;
+            const accountIndex = newState.accounts.findIndex(char => char._id === id.toString)
+            const newBal = newState.accounts[accountIndex].balance.parseInt - amount.parseInt;
+            newState.accounts[accountIndex].balance = newBal.toString();
+            console.log(newBal);
             return newState;
         default:
-            return state;
+            return newState;
     }
 };
 

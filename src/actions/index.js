@@ -4,20 +4,20 @@ export const initialLoad = (accounts) => {
         payload: accounts
     }
 }
-export const withdraw = (name, amount, type, id) => {
+export const withdraw = (name, amount, id) => {
     return {
         type: 'WITHDRAW',
         payload: {
-            name, amount, type, id
+            name, amount, id
         }
     }
 }
 
-export const deposit = (name, amount, type, id) => {
+export const deposit = (name, amount, id) => {
     return {
         type: 'DEPOSIT',
         payload: {
-            name, amount,type, id
+            name, amount,id
         }
     }
 }

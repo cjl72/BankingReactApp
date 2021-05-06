@@ -4,27 +4,24 @@ import { withdraw } from "../actions";
 import { deposit } from "../actions";
 
 class Balance extends React.Component {
+
     state = { name: '', amount: '', typeTransaction: '' }
 
     onFormSubmit = (event) => {
         event.preventDefault();
-        this.transactionType();
         if (this.state.typeTransaction === 'withdraw') {
-
+            this.props.withdraw(this.state.name, this.state.amount, this.props._id)
         }else if(this.state.typeTransaction === 'deposit') {
 
         }
-        const frm = document.getElementById('form');
-        frm.reset();
-        return false;
+    };
+
+    withdrawType() {
+       this.setState( { typeTransaction: 'withdraw' });
     }
 
-    transactionType = (props) => {
-        if(props.value === 'Withdraw') {
-            this.setState({ typeTransaction: 'withdraw'})
-        } else if(props.value === 'Deposit') {
-            this.setState({ typeTransaction: 'deposit' })
-        }
+    depositType() {
+        return this.setState({ typeTransaction: 'deposit' });
     }
 
     render () {
@@ -46,9 +43,9 @@ class Balance extends React.Component {
                                value={this.state.amount}
                                onChange={event => this.setState( { amount: event.target.value })}/>
                     </div>
+                    <input type='submit' name='withdraw' className='btn btn-danger' value='Withdraw' onClick={this.withdrawType} />
+                    <input type='submit' name='deposit' className='btn btn-success' value='Deposit' onClick={this.depositType} />
                 </form>
-                <input type='submit' name='withdraw' className='btn btn-danger' value='Withdraw' />
-                <input type='submit' name='deposit' className='btn btn-success' value='Deposit' />
             </div>
         )
     }
