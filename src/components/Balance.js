@@ -1,11 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withdraw } from "../actions";
+import { deposit } from "../actions";
 
 class Balance extends React.Component {
-    state = { name: '', amount: '', type: '' }
+    state = { name: '', amount: '', typeTransaction: '' }
 
     onFormSubmit = (event) => {
         event.preventDefault();
+        this.transactionType();
+        if (this.state.typeTransaction === 'withdraw') {
+            this.props.withdraw(this.state)
+        }else if(this.state.typeTransaction === 'deposit') {
+
+        }
+    }
+
+    transactionType = (props) => {
+        if(props.value === 'Withdraw') {
+            this.setState({ typeTransaction: 'withdraw'})
+        } else if(props.value === 'Deposit') {
+            this.setState({ typeTransaction: 'deposit' })
+        }
     }
 
     render () {
@@ -17,23 +33,19 @@ class Balance extends React.Component {
                         <label>Transaction Name</label>
                         <input type='text' className='form-control'
                                name='name'
-                               value={this.state.name} />
+                               value={this.state.name}
+                               onChange={event => this.setState( { name: event.target.value })}/>
                     </div>
-                </form>
-                <form onSubmit={this.onFormSubmit}>
                     <div className='form-group'>
                         <label>Amount</label>
                         <input type='text' className='form-control'
                                name='amount'
-                               value={this.state.amount} />
+                               value={this.state.amount}
+                               onChange={event => this.setState( { amount: event.target.value })}/>
                     </div>
                 </form>
-                <button type='button' className='btn btn-danger'>
-                    Withdraw
-                </button>
-                <button type='button' className='btn btn-success'>
-                    Deposit
-                </button>
+                <input type='submit' name='withdraw' className='btn btn-danger' value='Withdraw' onCLick='transactionType'/>
+                <input type='submit' name='deposit' className='btn btn-success' value='Deposit' />
             </div>
         )
     }
@@ -42,8 +54,8 @@ class Balance extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-
+        accounts: state.accounts.accounts
     };
 }
 
-export default connect(mapStateToProps,{  })(Balance);
+export default connect(mapStateToProps,{ withdraw, deposit })(Balance);
