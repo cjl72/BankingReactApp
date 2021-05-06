@@ -7,7 +7,7 @@ import { initialLoad } from '../actions';
 import Dashboard from './Dashboard';
 import Transactions from './Transactions';
 import Navigation from './Navigation';
-import Account from './Account';
+import Account  from './Account';
 import './styles/index.css';
 
 

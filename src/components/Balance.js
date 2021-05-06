@@ -10,10 +10,13 @@ class Balance extends React.Component {
         event.preventDefault();
         this.transactionType();
         if (this.state.typeTransaction === 'withdraw') {
-            this.props.withdraw(this.state)
+
         }else if(this.state.typeTransaction === 'deposit') {
 
         }
+        const frm = document.getElementById('form');
+        frm.reset();
+        return false;
     }
 
     transactionType = (props) => {
@@ -28,7 +31,7 @@ class Balance extends React.Component {
         return (
             <div className="balance container text-center">
                 <h4>Balance: ${ this.props.balance } </h4> <br />
-                <form onSubmit={this.onFormSubmit}>
+                <form onSubmit={this.onFormSubmit} id='form'>
                     <div className='form-group'>
                         <label>Transaction Name</label>
                         <input type='text' className='form-control'
@@ -44,7 +47,7 @@ class Balance extends React.Component {
                                onChange={event => this.setState( { amount: event.target.value })}/>
                     </div>
                 </form>
-                <input type='submit' name='withdraw' className='btn btn-danger' value='Withdraw' onCLick='transactionType'/>
+                <input type='submit' name='withdraw' className='btn btn-danger' value='Withdraw' />
                 <input type='submit' name='deposit' className='btn btn-success' value='Deposit' />
             </div>
         )
