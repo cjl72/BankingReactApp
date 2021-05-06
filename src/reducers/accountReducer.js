@@ -11,11 +11,9 @@ const accountReducer = (state = DEFAULT_STATE, action) => {
             newState = {accounts: [...action.payload]}
             return newState;
         case 'WITHDRAW':
-            const { name, amount, id } = action.payload;
-            const accountIndex = newState.accounts.findIndex(char => char._id === id.toString)
-            const newBal = newState.accounts[accountIndex].balance.parseInt - amount.parseInt;
-            newState.accounts[accountIndex].balance = newBal.toString();
-            console.log(newBal);
+            const { name, amount, id} = action.payload;
+            const account = state.accounts.find(char => char._id === id);
+            console.log(account);
             return newState;
         default:
             return newState;

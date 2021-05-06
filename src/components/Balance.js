@@ -18,11 +18,11 @@ class Balance extends React.Component {
 
     withdrawType() {
        this.setState( { typeTransaction: 'withdraw' });
-    }
+    };
 
     depositType() {
         return this.setState({ typeTransaction: 'deposit' });
-    }
+    };
 
     render () {
         return (
@@ -43,8 +43,8 @@ class Balance extends React.Component {
                                value={this.state.amount}
                                onChange={event => this.setState( { amount: event.target.value })}/>
                     </div>
-                    <input type='submit' name='withdraw' className='btn btn-danger' value='Withdraw' onClick={this.withdrawType} />
-                    <input type='submit' name='deposit' className='btn btn-success' value='Deposit' onClick={this.depositType} />
+                    <input type='submit' className='btn btn-danger' value='Withdraw' onClick={() => this.withdrawType()} />
+                    <input type='submit' className='btn btn-success' value='Deposit' onClick={() => this.depositType()} />
                 </form>
             </div>
         )

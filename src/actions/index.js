@@ -17,7 +17,7 @@ export const deposit = (name, amount, id) => {
     return {
         type: 'DEPOSIT',
         payload: {
-            name, amount,id
+            name, amount, id
         }
     }
 }
