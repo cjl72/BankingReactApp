@@ -26,7 +26,7 @@ export const deleteAccount = (id) => {
     return {
         type: 'DELETE_ACCOUNT',
         payload: {
-            id
+            id,
         }
     }
 }

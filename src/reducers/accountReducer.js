@@ -27,7 +27,9 @@ const accountReducer = (state = DEFAULT_STATE, action) => {
             return newState;
         case 'DELETE_ACCOUNT':
             const id = action.payload;
-
+            const accountIndex2 = newState.accounts.findIndex(char => char.id === id);
+            newState.accounts.splice(accountIndex2);
+            return newState;
         default:
             return state;
     }

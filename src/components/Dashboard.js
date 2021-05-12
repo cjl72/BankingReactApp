@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './styles/dashboard.css';
 import Balance from "./Balance";
+import { deleteAccount } from "../actions";
 
 
 class Dashboard extends React.Component {
@@ -24,7 +25,8 @@ class Dashboard extends React.Component {
                          </button>
                      </Link>
                      <button type='button'
-                             className='btn btn-danger'>
+                             className='btn btn-danger'
+                             onClick= { () => this.props.deleteAccount(char.id) }>
                          Delete
                      </button>
                  </div>
@@ -50,4 +52,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, null)(Dashboard);
+export default connect(mapStateToProps, { deleteAccount })(Dashboard);
