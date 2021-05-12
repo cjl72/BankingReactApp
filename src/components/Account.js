@@ -15,7 +15,7 @@ class Account extends React.Component{
                   <h2>{ account.name } Account</h2>
               </div>
               <div className='card'>
-                  <Balance balance={ account.balance }/>
+                  <Balance balance={ account.balance } id={ account.id }/>
               </div>
           </div>
         )};
