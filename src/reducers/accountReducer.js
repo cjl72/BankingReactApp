@@ -17,7 +17,7 @@ const accountReducer = (state = DEFAULT_STATE, action) => {
             const transaction = action.payload;
             const accountIndex = state.accounts.findIndex(char => char.id === transaction.id);
             const newBalance = state.accounts[accountIndex].balance - transaction.amount;
-            newState.accounts[accountIndex].setState({ balance: newBalance });
+            newState.accounts[accountIndex].balance = newBalance;
             return newState;
         default:
             return state;

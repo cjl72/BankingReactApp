@@ -6,7 +6,7 @@ class Account extends React.Component{
     render() {
         const id = this.props.match.params.id;
         console.log(id);
-        const account = this.props.accounts.find(char => char._id.toString() === id.toString());
+        const account = this.props.accounts.find(char => char.id.toString() === id.toString());
         console.log(account);
     return (
           <div className='container text-center'>
