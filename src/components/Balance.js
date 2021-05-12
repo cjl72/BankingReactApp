@@ -10,7 +10,7 @@ class Balance extends React.Component {
     onFormSubmit = (event) => {
         event.preventDefault();
         if (this.state.typeTransaction === 'withdraw') {
-            this.props.withdraw(this.state.name, this.state.amount, this.props._id)
+            this.props.withdraw(this.state.name, this.state.amount, this.props.id)
         }else if(this.state.typeTransaction === 'deposit') {
 
         }
@@ -21,7 +21,7 @@ class Balance extends React.Component {
     };
 
     depositType() {
-        return this.setState({ typeTransaction: 'deposit' });
+        this.setState({ typeTransaction: 'deposit' });
     };
 
     render () {

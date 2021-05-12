@@ -2,6 +2,9 @@ const DEFAULT_STATE = {
   accounts: [
 
   ]
+
+
+
 };
 
 const accountReducer = (state = DEFAULT_STATE, action) => {
@@ -11,9 +14,10 @@ const accountReducer = (state = DEFAULT_STATE, action) => {
             newState = {accounts: [...action.payload]}
             return newState;
         case 'WITHDRAW':
-            const { name, amount, id} = action.payload;
-            const account = state.accounts.find(char => char._id === id);
-            console.log(account);
+            const transaction = action.payload;
+            const accountIndex = state.accounts.findIndex(char => char.id.toString() === transaction.id.toString());
+            const currentBalance = state.accounts[accountIndex].balance;
+            newState.accounts[accountIndex].balance = currentBalance - transaction.amount;
             return newState;
         default:
             return newState;

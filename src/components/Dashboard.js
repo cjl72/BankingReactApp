@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
              <div className='card' key={index}>
                  <div className='card-body justify-content-center'>
                      <h2 className='card-header'>{ char.name }'s <br /> Account</h2>
-                     <Balance balance={ char.balance } />
+                     <Balance balance={ char.balance } id={ char.id }/>
                      <Link to ={ `/account/${char._id}` }>
                          <button type='button'
                                  className='btn btn-primary'>
