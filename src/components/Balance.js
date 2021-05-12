@@ -12,7 +12,7 @@ class Balance extends React.Component {
         if (this.state.typeTransaction === 'withdraw') {
             this.props.withdraw(this.state.name, this.state.amount, this.props.id)
         }else if(this.state.typeTransaction === 'deposit') {
-
+            this.props.deposit(this.state.name, this.state.amount, this.props.id)
         }
     };
 

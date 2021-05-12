@@ -8,7 +8,7 @@ const DEFAULT_STATE = {
 };
 
 const accountReducer = (state = DEFAULT_STATE, action) => {
-    let newState = {...state};
+    let newState = { accounts: [...state.accounts]};
     switch (action.type) {
         case 'INITIAL_LOAD':
             newState = {accounts: [...action.payload]}
@@ -18,6 +18,12 @@ const accountReducer = (state = DEFAULT_STATE, action) => {
             const accountIndex = state.accounts.findIndex(char => char.id === transaction.id);
             const newBalance = state.accounts[accountIndex].balance - transaction.amount;
             newState.accounts[accountIndex].balance = newBalance;
+            return newState;
+        case 'DEPOSIT':
+            const transaction1 = action.payload;
+            const accountIndex1 = state.accounts.findIndex(char => char.id === transaction1.id);
+            const newBalance1 = parseFloat(state.accounts[accountIndex1].balance) + parseFloat(transaction1.amount);
+            newState.accounts[accountIndex1].balance = newBalance1;
             return newState;
         default:
             return state;
