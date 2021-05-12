@@ -25,6 +25,9 @@ const accountReducer = (state = DEFAULT_STATE, action) => {
             const newBalance1 = parseFloat(state.accounts[accountIndex1].balance) + parseFloat(transaction1.amount);
             newState.accounts[accountIndex1].balance = newBalance1;
             return newState;
+        case 'DELETE_ACCOUNT':
+            const id = action.payload;
+
         default:
             return state;
     }

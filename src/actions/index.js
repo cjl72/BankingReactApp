@@ -21,3 +21,12 @@ export const deposit = (name, amount, id) => {
         }
     }
 }
+
+export const deleteAccount = (id) => {
+    return {
+        type: 'DELETE_ACCOUNT',
+        payload: {
+            id
+        }
+    }
+}
