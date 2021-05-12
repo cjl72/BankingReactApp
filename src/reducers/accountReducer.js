@@ -15,12 +15,12 @@ const accountReducer = (state = DEFAULT_STATE, action) => {
             return newState;
         case 'WITHDRAW':
             const transaction = action.payload;
-            const accountIndex = state.accounts.findIndex(char => char.id.toString() === transaction.id.toString());
-            const currentBalance = state.accounts[accountIndex].balance;
-            newState.accounts[accountIndex].balance = currentBalance - transaction.amount;
+            const accountIndex = state.accounts.findIndex(char => char.id === transaction.id);
+            const newBalance = state.accounts[accountIndex].balance - transaction.amount;
+            newState.accounts[accountIndex].setState({ balance: newBalance });
             return newState;
         default:
-            return newState;
+            return state;
     }
 };
 
