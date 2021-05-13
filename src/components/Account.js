@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Balance from './Balance';
+import { deleteAccount } from "../actions";
 
 class Account extends React.Component{
+
     render() {
         const id = this.props.match.params.id;
         console.log(id);
@@ -17,6 +19,17 @@ class Account extends React.Component{
               <div className='card'>
                   <Balance balance={ account.balance } id={ account.id }/>
               </div>
+              <button type='button'
+                      className='btn btn-danger'
+                      onClick= { () => this.props.deleteAccount(account.id) }>
+                  Delete
+              </button>
+              <ul className="list-group">
+
+              </ul>
+              <div className='container'>
+
+              </div>
           </div>
         )};
 };
@@ -27,4 +40,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,null)(Account);
+export default connect(mapStateToProps, { deleteAccount })(Account);
